@@ -1,0 +1,35 @@
+nslcd:
+  lookup:
+    config: '/etc/sysconfig/authconfig'
+    pkg: authconfig
+
+  CACHECREDENTIALS: True
+  FAILLOCKARGS: '"deny=4 unlock_time=1200"'
+  FORCELEGACY: False
+  FORCESMARTCARD: False
+  IPADOMAINJOINED: False
+  IPAV2NONTP: False
+  PASSWDALGORITHM: sha512
+  USEDB: False
+  USEECRYPTFS: False
+  USEFAILLOCK: False
+  USEFPRINTD: False
+  USEHESIOD: False
+  USEIPAV2: False
+  USEKERBEROS: False
+  USELDAP: False
+  USELDAPAUTH: False
+  USELOCAUTHORIZE: True
+  USEMKHOMEDIR: False
+  USENIS: False
+  USEPAMACCESS: False
+  USEPASSWDQC: False
+  USEPWQUALITY: True
+  USESHADOW: True
+  USESMARTCARD: False
+  USESSSD: True
+  USESSSDAUTH: False
+  USESYSNETAUTH: False
+  USEWINBIND: False
+  USEWINBINDAUTH: False
+  WINBINDKRB5: False

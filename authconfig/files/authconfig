@@ -1,0 +1,45 @@
+{%- set config = salt['pillar.get']('authconfig', {}) -%}
+
+{%- macro get_parameter(parameter, default=None) -%}
+{%- set value = config.get(parameter, default) %}
+{%- if value is not none %}
+{%-   if value is sameas true -%}
+{{ parameter }}=yes
+{%-   elif value is sameas false -%}
+{{ parameter }}=no
+{%-   else -%}
+{{ parameter }}={{ value }}
+{%-   endif %}
+{%- endif %}
+{%- endmacro -%}
+
+{{ get_parameter('CACHECREDENTIALS', True) }}
+{{ get_parameter('FAILLOCKARGS', '"deny=4 unlock_time=1200"') }}
+{{ get_parameter('FORCELEGACY', False) }}
+{{ get_parameter('FORCESMARTCARD', False) }}
+{{ get_parameter('IPADOMAINJOINED', False) }}
+{{ get_parameter('IPAV2NONTP', False) }}
+{{ get_parameter('PASSWDALGORITHM', 'sha512') }}
+{{ get_parameter('USEDB', False) }}
+{{ get_parameter('USEECRYPTFS', False) }}
+{{ get_parameter('USEFAILLOCK', False) }}
+{{ get_parameter('USEFPRINTD', False) }}
+{{ get_parameter('USEHESIOD', False) }}
+{{ get_parameter('USEIPAV2', False) }}
+{{ get_parameter('USEKERBEROS', False) }}
+{{ get_parameter('USELDAP', False) }}
+{{ get_parameter('USELDAPAUTH', False) }}
+{{ get_parameter('USELOCAUTHORIZE', True) }}
+{{ get_parameter('USEMKHOMEDIR', False) }}
+{{ get_parameter('USENIS', False) }}
+{{ get_parameter('USEPAMACCESS', False) }}
+{{ get_parameter('USEPASSWDQC', False) }}
+{{ get_parameter('USEPWQUALITY', True) }}
+{{ get_parameter('USESHADOW', True) }}
+{{ get_parameter('USESMARTCARD', False) }}
+{{ get_parameter('USESSSD', True) }}
+{{ get_parameter('USESSSDAUTH', False) }}
+{{ get_parameter('USESYSNETAUTH', False) }}
+{{ get_parameter('USEWINBIND', False) }}
+{{ get_parameter('USEWINBINDAUTH', False) }}
+{{ get_parameter('WINBINDKRB5', False) }}
